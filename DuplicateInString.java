@@ -29,6 +29,5 @@ public static void countDuplicateCharacter(String str) {
 			System.out.println(entry.getKey()+" : "+entry.getValue());
 		}
 	}
-	
 }
 }
