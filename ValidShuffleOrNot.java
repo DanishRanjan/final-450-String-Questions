@@ -32,10 +32,10 @@ public static void main(String args[]) {
 			}
 		}
 		if(i<l1 || j<l2) {
-			System.out.println("Not shuffle");
+			System.out.println("Invalid Shuffle");
 		}
 		else {
-			System.out.println("Shuffled");
+			System.out.println("Shuffled.");
 		}
 	}
 	
