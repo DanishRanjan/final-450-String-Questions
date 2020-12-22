@@ -5,6 +5,7 @@ public class LongestSubstringWithoutRepeating {
 		Scanner sc = new Scanner(System.in);
 		String s = sc.nextLine();
 		System.out.println(lengthofLargestSubstring(s));
+		System.out.println(LengthOfLargestSubstring2(s));
 	}
 
 	public static int lengthofLargestSubstring(String s) {
@@ -26,4 +27,24 @@ public class LongestSubstringWithoutRepeating {
 		}
 		return max;
 	}
+
+	public static int LengthOfLargestSubstring2(String s) {
+		HashMap<Character,Integer> ansMap = new HashMap<Character,Integer>();
+		int left = 0,right = 0;
+		int n = s.length();
+		int length = 0;
+		while(right<n) {
+			if(ansMap.containsKey(s.charAt(right))){
+				left = Math.max(ansMap.get(s.charAt(right))+1,left);
+			}
+			else {
+				ansMap.put(s.charAt(right),right);
+			}
+			length = Math.max(length,right-left+1);
+			right++;
+			
+		}
+		return length;
+	}
+
 }
