@@ -1,11 +1,11 @@
 import java.util.*;
-public class getSubsequences {
+public class permutation {
 public static void main(String args[]) {
 	Scanner sc = new Scanner(System.in);
 	String s = sc.nextLine();
-	System.out.println(getSS(s));
+	System.out.println(getPermutation(s));
 }
-public static ArrayList<String> getSS(String str){
+public static ArrayList<String> getPermutation(String str){
 	if(str.length()==0) {
 		ArrayList<String> baseCase = new ArrayList<>();
 		baseCase.add("");
@@ -14,10 +14,12 @@ public static ArrayList<String> getSS(String str){
 	char cc = str.charAt(0);
 	String ros = str.substring(1);
 	ArrayList<String> myResult = new ArrayList<>();
-	ArrayList<String> recResult = getSS(ros);
-	for(int i=0;i<recResult.size();i++) {
-		myResult.add(recResult.get(i));
-		myResult.add(cc+recResult.get(i));
+	ArrayList<String> recResult = getPermutation(ros);
+	for(String rrs:recResult) {
+		for(int i=0;i<=rrs.length();i++) {
+			String val = rrs.substring(0,i)+cc+rrs.substring(i);
+			myResult.add(val);
+		}
 	}
 	return myResult;
 }
