@@ -3,7 +3,11 @@ public class permutation {
 public static void main(String args[]) {
 	Scanner sc = new Scanner(System.in);
 	String s = sc.nextLine();
-	System.out.println(getPermutation(s));
+	ArrayList<String> ans = getPermutation(s);
+	Collections.sort(ans);
+	for(int i=0;i<ans.size();i++) {
+		System.out.print(ans.get(i)+" ");
+	}
 }
 public static ArrayList<String> getPermutation(String str){
 	if(str.length()==0) {
